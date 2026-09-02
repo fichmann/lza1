@@ -1,4 +1,13 @@
+###############################################################################################################
+# For additional configurable services, features, and property descriptions,                                  #
+# please review the AccountConfig class reference in our TypeDoc:                                             #
+# https://awslabs.github.io/landing-zone-accelerator-on-aws/latest/user-guide/config/#account-configuration   #
+###############################################################################################################
+
 mandatoryAccounts:
+  # We recommend you do not change mandatory account names. These are used within Landing Zone Accelerator to reference the accounts from other config files.
+  # The "name" value does not currently support spaces
+  # The "name" value DOES NOT need to match the account name
   - name: Management
     description: >-
       The management (primary) account. Do not change the name field for this
@@ -6,7 +15,6 @@ mandatoryAccounts:
       AWS account name.
     email: fichmann+lza1@amazon.com
     organizationalUnit: Root
-    warm: false
   - name: LogArchive
     description: >-
       The log archive account. Do not change the name field for this mandatory
@@ -14,7 +22,6 @@ mandatoryAccounts:
       name.
     email: fichmann+lza1-l@amazon.com
     organizationalUnit: Security
-    warm: false
   - name: Audit
     description: >-
       The security audit account (also referred to as the audit account). Do not
@@ -22,5 +29,19 @@ mandatoryAccounts:
       key does not need to match the AWS account name.
     email: fichmann+lza1-a@amazon.com
     organizationalUnit: Security
-    warm: false
-workloadAccounts: []
+workloadAccounts:
+  # The "name" will be used to set the AWS Account name
+  # The "name" value does not currently support spaces
+  # The "name" value DOES NOT need to match the account name
+  - name: SharedServices
+    description: The SharedServices account
+    email: fichmann+lza1-shared@amazon.com
+    organizationalUnit: Infrastructure
+  - name: Network
+    description: The Network account
+    email: fichmann+lza1-network@amazon.com
+    organizationalUnit: Infrastructure
+  - name: Perimeter
+    description: The Perimeter account
+    email: fichmann+lza1-perimiter@amazon.com
+    organizationalUnit: Infrastructure
